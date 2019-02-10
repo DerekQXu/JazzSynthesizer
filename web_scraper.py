@@ -7,7 +7,7 @@ import itertools
 # grab the page
 print('Starting to download')
 url = 'https://jazzomat.hfm-weimar.de/dbformat/synopsis/'
-f = open('metadata.csv', 'w+')
+f = open('metadata.qsv', 'w+')
 f.write('file_name?chord_prog?num_bars_prog?num_bars_total?style')
 for i in range(1,456):
     client = uReq(url + 'solo' + str(i) + '.html')
@@ -23,12 +23,10 @@ for i in range(1,456):
     file_name = midi_file.split('/')[-1]
 
     #download the song
-    '''
     print('Downloading Song: '+midi_file.split('/')[-1])
     response = requests.get(url + midi_file)
     with open('dataset/' + midi_file.split('/')[-1], 'wb+') as fp:
         fp.write(response.content)
-    '''
 
     #find style
     container = page_soup.find('div', {'id':'discographic-information'}).find_all('tr')
