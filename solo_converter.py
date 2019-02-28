@@ -3,6 +3,7 @@ import numpy as np
 import pandas as pd
 
 f = open('valid_files.csv', 'w+')
+f.write('valid_files\n')
 data = pd.read_csv('metadata.qsv', delimiter = '?')
 df = pd.DataFrame()
 path = 'dataset/'
@@ -79,4 +80,4 @@ print('feature shape:')
 print(features.shape)
 
 print('saving features')
-np.save('X_input.pckl', features, allow_pickle=True)
+np.save('y.pckl', features, allow_pickle=True)
